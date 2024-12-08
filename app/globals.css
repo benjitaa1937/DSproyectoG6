@@ -1,21 +1,217 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+/* Variables globales */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --primary-color: #ff0000;
+    --primary-light: #bb86fc;
+    --secondary-color: #ffdac7;
+    --background-color: #ffc5a8;
+    --text-color: #3d1313;
+    --card-background: #000000;
+    --border-radius: 8px;
   }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
+  
+  /* Reset básico */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Lucida Sans', monospace;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  
+  /* Contenedores */
+  .container {
+    width: 100%;
+    padding: 0 16px;
+    margin: 0 auto;
+  }
+  
+  @media (min-width: 600px) {
+    .container {
+      max-width: 960px;
+    }
+  }
+  
+  @media (min-width: 960px) {
+    .container {
+      max-width: 1200px;
+    }
+  }
+  
+  /* Navbar */
+  .navbar {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+  }
+  
+  .navbar .container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+  }
+  
+  /* Estilos del menú */
+  .navbar .menu {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .navbar .menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s;
+  }
+  
+  .navbar .menu a:hover {
+    color: #FFEB3B;
+  }
+  
+  /* Ícono de hamburguesa */
+  .navbar .hamburger {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+  }
+  
+  /* Producto grid y cards */
+  .product-grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .product-image {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    max-height: 150px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    border-radius: var(--border-radius);
+  }
+  
+  /* Modal */
+  .modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover {
+    color: black;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: #590000;
+    color: #CFD8DC;
+    padding: 2rem;
+    margin-top: auto;
+  }
+  
+  /* Selector de idioma */
+  .languageSelector {
+    background-color: var(--primary-color);
+    color: white;
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 0.5rem;
+    margin-left: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .languageSelector:hover {
+    background-color: #FFEB3B;
+    color: var(--primary-color);
+  }
+  
+  /* Media queries */
+  @media (max-width: 768px) {
+    .navbar {
+      padding: 0.75rem;
+    }
+  
+    .navbar .menu a {
+      font-size: 0.9rem;
+    }
+  
+    .navbar h1 {
+      font-size: 1.8rem;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .navbar .menu {
+      display: none;
+    }
+  
+    .navbar .hamburger {
+      display: block;
+    }
+  
+    .navbar h1 {
+      font-size: 1.5rem;
+    }
+  
+    .menu.show {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: var(--primary-color);
+      padding: 1rem;
+    }
+  
+    .product-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (min-width: 600px) and (max-width: 960px) {
+    .product-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 960px) {
+    .product-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
