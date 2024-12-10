@@ -1,52 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useLanguage } from './context/LanguageContext';
 import Swal from 'sweetalert2';
-import Layout from '../components/Layout';
-import { useState } from 'react';
-import es from '../translations/es.json';
-
-const cargarTraduccion = (idioma) => {
-  if (idioma === 'es') return es;
-  return {}; // Añade más idiomas aquí
-};
-
-export default function Home() {
-  const [idioma, setIdioma] = useState('es');
-  const traducciones = cargarTraduccion(idioma);
-
-  // Cambiar idioma
-  const cambiarIdioma = (nuevoIdioma) => {
-    setIdioma(nuevoIdioma);
-  };
-
-  // Usa traducciones para productos
-  productos.map((producto) => {
-    producto.title = traducciones.product_names[producto.id] || producto.title;
-    producto.description =
-      traducciones.product_descriptions[producto.id] || producto.description;
-  });
-
-  return (
-    <>
-      <select
-        value={idioma}
-        onChange={(e) => cambiarIdioma(e.target.value)}
-        className="mb-4"
-      >
-        <option value="es">Español</option>
-        <option value="en">Inglés</option>
-      </select>
-      {/* Resto del código */}
-    </>
-  );
-}
+import Layout from './components/Layout';
+import es from './translations/es.json';
+import en from './translations/en.json';
 
 const API_URL = 'https://fakestoreapi.com/products';
 
-export default function Home() {
-  const [productos, setProductos] = useState([]);
-  const [carrito, setCarrito] = useState([]);
+const traduccionesPorIdioma = { es, en };
 
-  // Cargar productos al inicio
+export default function Home() {
+  const { idioma } = useLanguage();
+  const [productos, setProductos] = useState([]);
+  const traducciones = traduccionesPorIdioma[idioma];
+
   useEffect(() => {
     const fetchProductos = async () => {
       try {
@@ -61,12 +28,10 @@ export default function Home() {
     fetchProductos();
   }, []);
 
-  // Agregar producto al carrito
   const agregarAlCarrito = (producto) => {
-    setCarrito([...carrito, producto]);
     Swal.fire({
-      title: 'Producto agregado',
-      text: `¡"${producto.title}" ha sido agregado al carrito!`,
+      title: traducciones.alert_title,
+      text: `${traducciones.alert_text} "${producto.title}"!`,
       icon: 'success',
       showConfirmButton: false,
       timer: 1500,
@@ -83,14 +48,18 @@ export default function Home() {
               alt={producto.title}
               className="w-full h-48 object-cover mb-4"
             />
-            <h3 className="text-lg font-bold mb-2">{producto.title}</h3>
-            <p className="text-gray-700 mb-4">{producto.description}</p>
+            <h3 className="text-lg font-bold mb-2">
+              {traducciones.product_names?.[producto.id] || producto.title}
+            </h3>
+            <p className="text-gray-700 mb-4">
+              {traducciones.product_descriptions?.[producto.id] || producto.description}
+            </p>
             <p className="text-gray-900 font-bold">${producto.price}</p>
             <button
               className="bg-blue-500 text-white p-2 rounded hover:bg-blue-700 mt-2"
               onClick={() => agregarAlCarrito(producto)}
             >
-              Agregar al carrito
+              {traducciones.add_to_cart}
             </button>
           </div>
         ))}

@@ -2,12 +2,11 @@
     "title": "Welcome to our Store!",
     "nav": {
       "home": "Home",
-      "products": "Products",
       "login": "Log in",
       "signup": "Sign up"
     },
 
-    "products_available": "Available Products",
+    "products_available": "Our Products",
     "footer_text": "All rights reserved, 2024. Group 6 Software Design. Diego Marín, Agustín Escobar, Benjamín González. ",
     "product_names": {
       "1": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -54,5 +53,8 @@
       "20": "95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter."
 
 
-  }
+  },
+  "alert_title": "Product added",
+  "alert_text": "The product has been added to the cart",
+   "add_to_cart": "Add to cart"
 }  

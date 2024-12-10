@@ -1,5 +1,14 @@
-// app/components/ProductCard.tsx
-import { Product } from "@/types"
+
+import { Product } from "../types2/types"
+import Swal from "sweetalert2"
+import { useLanguage } from '../context/LanguageContext';
+import { Traducciones } from '../types2/types'; 
+import es from '../translations/es.json';
+import en from '../translations/en.json';
+
+
+const traduccionesPorIdioma: Record<string, Traducciones> = { es, en };
+
 
 interface ProductCardProps {
   product: Product
@@ -7,6 +16,8 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product, onAddToCart }: ProductCardProps) {
+  const { idioma, cambiarIdioma } = useLanguage();
+  const traducciones = traduccionesPorIdioma[idioma] || traduccionesPorIdioma['en'];
   return (
     <div className="border p-4 rounded bg-white shadow">
       <img 
@@ -33,7 +44,7 @@ export default function ProductCard({ product, onAddToCart }: ProductCardProps) 
         onClick={() => onAddToCart(product)}
         className="bg-blue-500 text-white p-2 rounded hover:bg-blue-700 w-full mt-4"
       >
-        Add to Cart
+        {traducciones.add_to_cart}
       </button>
     </div>
   )

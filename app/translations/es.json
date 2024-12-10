@@ -2,11 +2,10 @@
     "title": "¡Bienvenido a nuestra Tienda!",
     "nav": {
       "home": "Inicio",
-      "products": "Productos",
       "login": "Iniciar sesión",
       "signup": "Registrarse"
     },
-    "products_available": "Productos Disponibles",
+    "products_available": "Nuestros Productos",
     "footer_text": "Todos los derechos reservados, 2024. Grupo 6 Diseño de Software. Diego Marín, Agustín Escobar, Benjamín González",
     "product_names": {
       "1": "Fjallraven - Mochila Foldsack No. 1, con capacidad para 15 portátiles",
@@ -51,6 +50,9 @@
       "18":"95% RAYÓN 5% SPANDEX, Hecho en EE. UU. o importado, No usar lejía, Tejido liviano con gran elasticidad para mayor comodidad, Acanalado en mangas y escote / Doble costura en el dobladillo inferior",
       "19":"100 % poliéster, lavado a máquina, tejido entrelazado 100 % poliéster catiónico, lavado a máquina y preencogido para un excelente ajuste, liviano, espacioso y altamente transpirable con tejido que absorbe la humedad y ayuda a mantenerla alejada, tejido suave y liviano con cómodo cuello en V y un ajuste más delgado, ofrece una silueta elegante y más femenina y mayor comodidad",
       "20":"95% algodón, 5% spandex, Características: informal, manga corta, estampado de letras, cuello en V, camisetas de moda, la tela es suave y algo elástica. Ocasión: informal/oficina/playa/escuela/hogar/calle. Temporada: Primavera,Verano,Otoño,Invierno."
-    }
+    },
+    "alert_title": "Producto agregado",
+    "alert_text": "¡El producto ha sido agregado al carrito!",
+     "add_to_cart": "Agregar al carrito"
   }
   
