@@ -1,0 +1,1 @@
+Terminar de configurar Login con BBDD. Verificar que no haya problemas al ingresarnos como usuarios y al momento de ingresar un usuario equivocado, que arroje un mensaje de "El usuario no existe"
