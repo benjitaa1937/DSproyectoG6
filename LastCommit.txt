@@ -1,0 +1,3 @@
+Arreglamos product grid y estamos mejorando el diseño.
+Falta arreglar login + bbdd (que no sea local)
+Comentar entre nosotros que más le agregamos o quitamos y GRABAR LOS VIDEOS !!!
