@@ -3,9 +3,16 @@
     "nav": {
       "home": "Home",
       "login": "Log in",
-      "signup": "Sign up"
+      "signup": "Sign up",
+      "cart": "Cart"
     },
-
+    "cart": {
+      "title": "Shopping Cart",
+      "cantidad": "Quantity:",
+      "precio": "Total price",
+      "empty": "The cart is empty.",
+      "eliminar": "Remove product"
+    },
     "products_available": "Our Products",
     "footer_text": "All rights reserved, 2024. Group 6 Software Design. Diego Marín, Agustín Escobar, Benjamín González. ",
     "product_names": {

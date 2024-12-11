@@ -25,7 +25,7 @@ export default function ProductGrid() {
         const response = await fetch(API_URL);
         const data = await response.json();
 
-        // Aplicar traducciones a los productos
+        
         const translatedProducts = data.map((product: Product) => ({
           ...product,
           title: traducciones.product_names[product.id] || product.title,
@@ -42,7 +42,9 @@ export default function ProductGrid() {
   }, [idioma]); 
 
   const addToCart = (product: Product) => {
-    setCart([...cart, product]);
+    const currentCart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const updatedCart = [...currentCart, product];
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
 
     
     Swal.fire({
@@ -55,7 +57,7 @@ export default function ProductGrid() {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="product-grid">
       {products.map((product) => (
         <ProductCard 
           key={product.id} 

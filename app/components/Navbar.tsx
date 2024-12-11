@@ -25,6 +25,9 @@ export default function Navbar() {
           <Link href="/signup" className="text-gray-200 hover:text-white px-5">
             {traducciones.nav.signup}
           </Link>
+          <Link href="/cart" className="text-gray-200 hover:text-white px-5">
+            {traducciones.nav.cart}
+          </Link>
         </div>
         <select
           className="languageSelector"

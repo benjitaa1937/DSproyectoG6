@@ -3,7 +3,15 @@
     "nav": {
       "home": "Inicio",
       "login": "Iniciar sesión",
-      "signup": "Registrarse"
+      "signup": "Registrarse",
+      "cart": "Carrito"
+    },
+    "cart": {
+      "title": "Carrito de Compras",
+      "cantidad": "Cantidad:",
+      "precio": "Total a pagar",
+      "empty": "El carrito está vacío.",
+      "eliminar": "Eliminar producto"
     },
     "products_available": "Nuestros Productos",
     "footer_text": "Todos los derechos reservados, 2024. Grupo 6 Diseño de Software. Diego Marín, Agustín Escobar, Benjamín González",
@@ -54,5 +62,5 @@
     "alert_title": "Producto agregado",
     "alert_text": "¡El producto ha sido agregado al carrito!",
      "add_to_cart": "Agregar al carrito"
-  }
+}
   

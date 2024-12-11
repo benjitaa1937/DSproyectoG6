@@ -1,15 +1,15 @@
-/* Variables globales */
+
 :root {
-    --primary-color: #ff0000;
+    --primary-color: #0053bd;
     --primary-light: #bb86fc;
     --secondary-color: #ffdac7;
-    --background-color: #ffc5a8;
-    --text-color: #3d1313;
+    --background-color: #ffffff;
+    --text-color: #092454;
     --card-background: #000000;
     --border-radius: 8px;
   }
   
-  /* Reset básico */
+  
   *,
   *::before,
   *::after {
@@ -25,7 +25,6 @@
     line-height: 1.6;
   }
   
-  /* Contenedores */
   .container {
     width: 100%;
     padding: 0 16px;
@@ -44,7 +43,7 @@
     }
   }
   
-  /* Navbar */
+
   .navbar {
     background-color: var(--primary-color);
     color: white;
@@ -58,7 +57,7 @@
     width: 100%;
   }
   
-  /* Estilos del menú */
+  
   .navbar .menu {
     display: flex;
     gap: 1rem;
@@ -76,7 +75,7 @@
     color: #FFEB3B;
   }
   
-  /* Ícono de hamburguesa */
+  
   .navbar .hamburger {
     display: none;
     font-size: 1.5rem;
@@ -84,7 +83,7 @@
     color: white;
   }
   
-  /* Producto grid y cards */
+  
   .product-grid {
     display: grid;
     gap: 1rem;
@@ -137,13 +136,13 @@
   
   /* Footer */
   .footer {
-    background-color: #590000;
+    background-color: #002451;
     color: #CFD8DC;
     padding: 2rem;
     margin-top: auto;
   }
   
-  /* Selector de idioma */
+  
   .languageSelector {
     background-color: var(--primary-color);
     color: white;
