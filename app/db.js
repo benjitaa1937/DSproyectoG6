@@ -1,18 +1,16 @@
+// db.js
+import mongoose from 'mongoose';
 
-const mongoose = require('mongoose');
-const uri = "mongodb+srv://benjagonzalezp02:<db_password>@clusterg6.syvrl.mongodb.net/?retryWrites=true&w=majority&appName=clusterg6";
+const connectDB = async () => {
+  if (mongoose.connection.readyState >= 1) return; // Evita múltiples conexiones
 
-const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
-
-async function run() {
   try {
-    
-    await mongoose.connect(uri, clientOptions);
-    await mongoose.connection.db.admin().command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } finally {
-    
-    await mongoose.disconnect();
+    await mongoose.connect(process.env.MONGODB_URI);
+    console.log('Conexión exitosa a MongoDB');
+  } catch (error) {
+    console.error('Error al conectar a MongoDB:', error);
+    throw new Error('No se pudo conectar a la base de datos');
   }
-}
-run().catch(console.dir);
+};
+
+export default connectDB;

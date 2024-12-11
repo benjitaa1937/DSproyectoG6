@@ -1,4 +1,7 @@
+'use client';
+
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { useLanguage } from './context/LanguageContext';
 import Swal from 'sweetalert2';
 import Layout from './components/Layout';
@@ -12,6 +15,7 @@ const traduccionesPorIdioma = { es, en };
 export default function Home() {
   const { idioma } = useLanguage();
   const [productos, setProductos] = useState([]);
+  const router = useRouter();
   const traducciones = traduccionesPorIdioma[idioma];
 
   useEffect(() => {
@@ -29,6 +33,22 @@ export default function Home() {
   }, []);
 
   const agregarAlCarrito = (producto) => {
+    // Verificar si el usuario está logueado
+    const token = localStorage.getItem('token');
+    if (!token) {
+      // Si no está logueado, redirigir al login
+      Swal.fire({
+        title: traducciones.login_required,
+        text: traducciones.please_login,
+        icon: 'warning',
+        showConfirmButton: true,
+      }).then(() => {
+        router.push('/login'); // Redirigir al login
+      });
+      return;
+    }
+
+    // Si está logueado, agregar al carrito
     Swal.fire({
       title: traducciones.alert_title,
       text: `${traducciones.alert_text} "${producto.title}"!`,
