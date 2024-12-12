@@ -6,6 +6,8 @@ import { useLanguage } from '../context/LanguageContext';
 import { Traducciones } from '../types2/types'; 
 import es from '../translations/es.json';
 import en from '../translations/en.json';
+import Swal from "sweetalert2";
+import ProductGrid from './ProductGrid';
 
 interface CartItem extends Product {
   quantity: number; 
@@ -43,6 +45,14 @@ const Cart = () => {
     const updatedCart = cartItems.filter((product) => product.id !== productId);
     setCartItems(updatedCart);
     localStorage.setItem('cart', JSON.stringify(updatedCart));
+
+     Swal.fire({
+          title: traducciones.alert2_title,
+          text: traducciones.alert2_text,
+          icon: 'error',
+          showConfirmButton: false,
+          timer: 1500,
+        });
   };
 
   const calculateTotal = () => {
@@ -74,7 +84,7 @@ const Cart = () => {
                 </div>
               </div>
               <button
-                className="bg-red-500 text-white p-2 rounded hover:bg-red-700"
+                className="botoncarrito"
                 onClick={() => removeItem(product.id)}
               >
                 {traducciones.cart.eliminar}

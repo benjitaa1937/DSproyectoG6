@@ -1,14 +1,12 @@
-// api/login/route.js
-import connectDB from '../../db';  // Asegúrate de importar la conexión a DB
+import connectDB from '../../db';  
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { NextResponse } from 'next/server';
-import User from '../../models/user';  // Asegúrate de tener el modelo de usuario
+import User from '../../models/user';  
 
 export async function POST(request) {
   try {
-    await connectDB(); // Conexión a MongoDB
-
+    await connectDB(); 
     const { email, password } = await request.json();
 
     if (!email || !password) {

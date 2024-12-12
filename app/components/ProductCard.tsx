@@ -42,7 +42,7 @@ export default function ProductCard({ product, onAddToCart }: ProductCardProps) 
       </p>
       <button
         onClick={() => onAddToCart(product)}
-        className="bg-blue-500 text-white p-2 rounded hover:bg-blue-700 w-full mt-4"
+        className="botoncarrito"
       >
         {traducciones.add_to_cart}
       </button>

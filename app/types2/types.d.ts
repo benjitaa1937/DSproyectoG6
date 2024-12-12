@@ -14,6 +14,21 @@ export type Traducciones = {
       empty: string;
       eliminar: string;
     };
+    signup: {
+      username: string;
+      email: string;
+      password: string;
+      register: string;
+      crear: string;
+      errorpass: string;
+      confirmpass: string;
+    };
+    login: {
+      email: string;
+      password: string;
+      title: string;
+      boton: string;
+    };
 
     products_available: string;
     footer_text: string;
@@ -21,6 +36,8 @@ export type Traducciones = {
     product_descriptions: Record<string, string>;
     alert_title: string;
     alert_text: string;
+    alert2_title: string;
+    alert2_text: string;
     add_to_cart: string;
   };
   

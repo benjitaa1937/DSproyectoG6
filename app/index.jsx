@@ -33,22 +33,22 @@ export default function Home() {
   }, []);
 
   const agregarAlCarrito = (producto) => {
-    // Verificar si el usuario está logueado
+    
     const token = localStorage.getItem('token');
     if (!token) {
-      // Si no está logueado, redirigir al login
+      
       Swal.fire({
         title: traducciones.login_required,
         text: traducciones.please_login,
         icon: 'warning',
         showConfirmButton: true,
       }).then(() => {
-        router.push('/login'); // Redirigir al login
+        router.push('/login'); 
       });
       return;
     }
 
-    // Si está logueado, agregar al carrito
+    
     Swal.fire({
       title: traducciones.alert_title,
       text: `${traducciones.alert_text} "${producto.title}"!`,
@@ -76,7 +76,7 @@ export default function Home() {
             </p>
             <p className="text-gray-900 font-bold">${producto.price}</p>
             <button
-              className="bg-blue-500 text-white p-2 rounded hover:bg-blue-700 mt-2"
+              className="botoncarrito"
               onClick={() => agregarAlCarrito(producto)}
             >
               {traducciones.add_to_cart}
