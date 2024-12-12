@@ -28,6 +28,7 @@ export type Traducciones = {
       password: string;
       title: string;
       boton: string;
+      registrar: string;
     };
 
     products_available: string;

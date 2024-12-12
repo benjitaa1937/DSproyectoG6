@@ -26,8 +26,9 @@
     "title": "Welcome back!",
     "email": "E-Mail",
     "password": "Password",
-    "boton": "Log In"
-    },
+    "boton": "Log In",
+    "registrar": "Don't have an account yet?"
+  },
   "products_available": "Our Products",
   "footer_text": "All rights reserved, 2024. Group 6 Software Design. Diego Marín, Agustín Escobar, Benjamín González.",
   "product_names": {

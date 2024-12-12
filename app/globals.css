@@ -217,9 +217,9 @@
   .container.login { 
     background-color: #0053bd; 
     border-radius: 12px;
-    padding: 40px;
+    padding: 70px;
     box-shadow: 0 4px 10px var(--shadow-color);
-    max-width: 500px; 
+    max-width: 700px; 
     margin: 50px auto;
     color: #ffffff; 
   }
@@ -355,4 +355,9 @@ main {
 
 .animate-fade-in-out {
   animation: fade-in-out 3s ease-in-out forwards;
+}
+
+.signuptext {
+
+  color: #00b2ff;
 }

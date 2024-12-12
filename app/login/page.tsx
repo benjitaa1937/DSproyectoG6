@@ -6,6 +6,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { Traducciones } from '../types2/types'; 
 import es from '../translations/es.json';
 import en from '../translations/en.json';
+import Link from 'next/link';
 
 const traduccionesPorIdioma: Record<string, Traducciones> = { es, en };
 
@@ -92,6 +93,9 @@ const LoginPage = () => {
         >
           {traducciones.login.boton}
         </button>
+        <Link href="/signup" className="signuptext">
+        {traducciones.login.registrar}
+        </Link>
       </form>
     </div>
   );

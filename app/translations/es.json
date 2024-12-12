@@ -26,7 +26,8 @@
     "title": "¡Bienvenido de vuelta!",
     "email": "Correo Electrónico",
     "password": "Contraseña",
-    "boton": "Iniciar Sesión"
+    "boton": "Iniciar Sesión",
+    "registrar": "¿No tienes una cuenta?"
     },
   "products_available": "Nuestros productos",
   "footer_text": "Todos los derechos reservados, 2024. Diseño de software del Grupo 6. Diego Marín, Agustín Escobar, Benjamín González.",

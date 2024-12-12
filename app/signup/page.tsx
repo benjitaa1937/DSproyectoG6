@@ -19,15 +19,34 @@ const RegisterPage = () => {
     confirmPassword: '',
   });
   const [generalError, setGeneralError] = useState('');
-  const [passwordError, setPasswordError] = useState(false); // Controla la alerta de superposición
+  const [passwordError, setPasswordError] = useState(false);
+  const [validationError, setValidationError] = useState(''); // Para errores de validación de contraseña
   const router = useRouter();
+
+  const validatePassword = (password: string) => {
+    const minLength = 8;
+    const hasUpperCase = /[A-Z]/.test(password);
+
+    if (password.length < minLength) {
+      return `La contraseña debe tener al menos ${minLength} caracteres.`;
+    }
+    if (!hasUpperCase) {
+      return 'La contraseña debe incluir al menos una letra mayúscula.';
+    }
+    return '';
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
 
+    if (name === 'password') {
+      const error = validatePassword(value);
+      setValidationError(error); // Mostrar mensaje si no cumple la validación
+    }
+
     if (name === 'confirmPassword') {
-      setPasswordError(false); // Ocultar la alerta al cambiar el valor
+      setPasswordError(false);
     }
   };
 
@@ -36,11 +55,13 @@ const RegisterPage = () => {
     setGeneralError('');
     setPasswordError(false);
 
-    // Validar que las contraseñas coincidan
+    if (validationError) {
+      
+      return;
+    }
+
     if (formData.password !== formData.confirmPassword) {
       setPasswordError(true);
-
-      // Hacer que la alerta desaparezca después de 3 segundos
       setTimeout(() => setPasswordError(false), 3000);
       return;
     }
@@ -110,6 +131,7 @@ const RegisterPage = () => {
             required
             className="w-full border border-gray-300 px-4 py-2 rounded-lg focus:outline-none focus:border-blue-500"
           />
+          {validationError && <p className="text-red-500 text-sm mt-1">{validationError}</p>}
         </div>
         <div>
           <label htmlFor="confirmPassword" className="block text-gray-700 font-medium mb-2">
